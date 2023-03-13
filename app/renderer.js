@@ -1,4 +1,4 @@
-const marked = require('../node_modules/marked');
+const marked = require('marked');
 
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
@@ -11,7 +11,9 @@ const showFielButton = document.querySelector('#show-file');
 const openInDefaultButton = document.querySelector('#open-in-default');
 
 const renderMarkdownToHtml = (markdown) => {
-    htmlView.innerHTML = marked(markdown, { sanitize: true });
+    htmlView.innerHTML = marked.parse(markdown, {
+        sanitize: true,
+    });
 };
 
 markdownView.addEventListener('keyup', (event) => {
